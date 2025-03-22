@@ -12,6 +12,7 @@ export function Dashboard() {
     { name: 'Request Airdrop', path: '/dashboard/request-airdrop' },
     { name: 'Send Tokens', path: '/dashboard/send-tokens' },
     { name: 'Sign Message', path: '/dashboard/sign-message' },
+    { name: 'Token Launchpad', path: '/dashboard/token-launchpad' },
   ];
 
   return (

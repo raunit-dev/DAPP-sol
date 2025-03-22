@@ -10,6 +10,7 @@ import { Dashboard } from './components/Dashboard';
 import { RequestAirdrop } from './Components/RequestAirdrop';
 import { SendTokens } from './Components/SendTokens';
 import { SignMessage } from './Components/SignMessage';
+import { TokenLaunchpad } from './Components/TokenLaunchpad';
 
 import '@solana/wallet-adapter-react-ui/styles.css';
 
@@ -26,6 +27,7 @@ export default function App() {
             <Routes>
               <Route path="/" element={<Welcome />} />
               <Route path="/dashboard" element={<Dashboard />}>
+                 <Route path="token-launchpad" element={<TokenLaunchpad/>}/>
                 <Route path="request-airdrop" element={<RequestAirdrop />} />
                 <Route path="send-tokens" element={<SendTokens />} />
                 <Route path="sign-message" element={<SignMessage />} />
