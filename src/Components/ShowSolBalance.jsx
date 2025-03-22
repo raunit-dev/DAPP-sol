@@ -9,9 +9,13 @@ export function ShowSolBalance() {
 
     useEffect(() => {
         async function getBalance() { 
-            if (wallet.publicKey) {
-                const balance = await connection.getBalance(wallet.publicKey);
-                setBalance(balance / LAMPORTS_PER_SOL);
+            try {
+                if (wallet.publicKey) {
+                    const balance = await connection.getBalance(wallet.publicKey);
+                    setBalance(balance / LAMPORTS_PER_SOL);
+                }
+            } catch (error) {
+                console.error("Failed to fetch balance:", error);
             }
         }
         getBalance();

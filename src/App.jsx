@@ -2,7 +2,6 @@ import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
 import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
 import { PhantomWalletAdapter } from '@solana/wallet-adapter-wallets';
-import { clusterApiUrl } from '@solana/web3.js';
 import { useMemo } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Welcome } from './components/Welcome';
@@ -15,8 +14,7 @@ import { TokenLaunchpad } from './Components/TokenLaunchpad';
 import '@solana/wallet-adapter-react-ui/styles.css';
 
 export default function App() {
-  const network = WalletAdapterNetwork.Devnet;
-  const endpoint = useMemo(() => clusterApiUrl(network), [network]);
+  const endpoint = 'https://solana-devnet.g.alchemy.com/v2/EuBWMQhL3488mN1Got-s7v9yeHXGLRj_';
   const wallets = useMemo(() => [new PhantomWalletAdapter()], []);
 
   return (
