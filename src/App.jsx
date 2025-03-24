@@ -29,7 +29,6 @@ export default function App() {
                 <Route path="request-airdrop" element={<RequestAirdrop />} />
                 <Route path="send-tokens" element={<SendTokens />} />
                 <Route path="sign-message" element={<SignMessage />} />
-                <Route index element={<Navigate to="request-airdrop" replace />} />
               </Route>
             </Routes>
           </BrowserRouter>

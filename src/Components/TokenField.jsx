@@ -11,8 +11,8 @@ export function TokenField({
   step
 }) {
   return (
-    <div className="mb-4 animate-slide-up">
-      <label htmlFor={id} className="token-label">
+    <div className="mb-4 animate-fade-in">
+      <label htmlFor={id} className="block text-sm font-medium text-softWhite/80 mb-1">
         {label}
       </label>
       <input
@@ -23,7 +23,7 @@ export function TokenField({
         placeholder={placeholder}
         min={min}
         step={step}
-        className="token-input"
+        className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-softWhite placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-teal/50 focus:border-transparent transition-all duration-200"
       />
     </div>
   );

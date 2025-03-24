@@ -156,12 +156,12 @@ export function TokenLaunchpad() {
     }
 
     return (
-        <div className="max-w-lg mx-auto my-12 px-6">
-            <div className="token-card">
-                <h1 className="token-title">Solana Token Launchpad</h1>
-                <p className="token-subtitle">Create your own token on Solana in seconds</p>
+        <div className="max-w-lg mx-auto">
+            <div className="animate-fade-in">
+                <h2 className="text-2xl font-bold gradient-text mb-2">Create New Token</h2>
+                <p className="text-softWhite/70 mb-6">Launch your own token on Solana in minutes</p>
                 
-                <div className="stagger-animate">
+                <div className="space-y-4">
                     <TokenField 
                         id="token-name"
                         label="Token Name"
@@ -200,20 +200,28 @@ export function TokenLaunchpad() {
                     <button 
                         onClick={createToken} 
                         disabled={isLoading || !wallet.publicKey || !name || !symbol || !uri || !supply}
-                        className="token-button mt-4"
+                        className="w-full py-3 px-4 gradient-btn rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                        {isLoading ? 'Creating...' : 'Create Token'}
+                        {isLoading ? (
+                            <span className="flex items-center justify-center">
+                                <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                Creating...
+                            </span>
+                        ) : 'Create Token'}
                     </button>
                 </div>
                 
                 {successMessage && (
-                    <div className="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg text-green-800 animate-fade-in">
+                    <div className="mt-6 p-4 bg-teal/10 border border-teal/30 rounded-lg text-teal animate-fade-in">
                         {successMessage}
                     </div>
                 )}
                 
                 {!wallet.publicKey && (
-                    <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg text-amber-700 animate-fade-in">
+                    <div className="mt-6 p-4 bg-amber-900/30 border border-amber-500/30 rounded-lg text-amber-300 animate-fade-in">
                         Please connect your wallet to create a token
                     </div>
                 )}

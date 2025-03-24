@@ -23,12 +23,18 @@ export function ShowSolBalance() {
         return () => clearInterval(interval);
     }, [connection, wallet.publicKey]);
     
-    if (!wallet.publicKey) return null;
+    if (!wallet.publicKey) {
+        return (
+            <div className="glass-panel rounded-lg p-4 text-center">
+                <p className="text-softWhite/70">Connect wallet to view balance</p>
+            </div>
+        );
+    }
 
     return (
-        <div className="bg-gray-800 px-4 py-2 rounded-lg shadow-lg">
-            <p className="text-gray-400 text-sm">Balance:</p>
-            <p className="text-xl font-bold text-white">
+        <div className="glass-panel rounded-lg p-4">
+            <p className="text-softWhite/70 text-sm mb-1">Balance:</p>
+            <p className="text-xl font-bold gradient-text">
                 {balance !== null ? `${balance.toFixed(4)} SOL` : "Loading..."}
             </p>
         </div>
